@@ -35,10 +35,10 @@ function Page() {
   }, []);
 
   return (
-    <div className={cn("grid grid-cols-[auto,1fr] h-screen w-screen bg-background text-foreground")}>
+    <div className={cn("flex flex-col md:grid md:grid-cols-[auto,1fr] h-screen w-screen bg-background text-foreground")}>
       <AppLeftPanel />
-      <main className="flex flex-col justify-center items-center p-6 w-full">
-        <div className="w-full max-w-6xl bg-white dark:bg-AppMutedPop p-6 rounded-xl shadow-lg">
+      <main className="flex flex-col justify-center items-center p-4 sm:p-6 w-full">
+        <div className="w-full max-w-6xl bg-white dark:bg-AppMutedPop p-4 sm:p-6 rounded-xl shadow-lg">
           {FormattedData ? (
             <AppDataTable columns={columns} data={FormattedData} />
           ) : (

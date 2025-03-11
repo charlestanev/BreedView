@@ -52,26 +52,26 @@ export function AppDataTable<TData, TValue>({
 
 
     return (
-        <div className="px-6">
-            <div className="flex items-center justify-between py-4">
-                <h2 className="text-xl font-semibold text-AppMutedPop">Dog Images</h2>
+        <div className="px-4 sm:px-6">
+            <div className="flex flex-col sm:flex-row items-center justify-between py-4 gap-4">
+                <h2 className="text-lg sm:text-xl font-semibold text-AppMutedPop text-center sm:text-left">Dog Images</h2>
                 <Input
                     placeholder="Search Image..."
                     value={(table.getColumn("ImageLink")?.getFilterValue() as string) ?? ""}
                     onChange={(event) =>
                         table.getColumn("ImageLink")?.setFilterValue(event.target.value)
                     }
-                    className="w-64 border border-AppSecondary focus:ring-2 focus:ring-AppPop"
+                    className="w-full sm:w-64 border border-AppSecondary focus:ring-2 focus:ring-AppPop"
                 />
             </div>
 
-            <div className="rounded-lg border border-AppSecondary shadow-md overflow-hidden">
+            <div className="rounded-lg border border-AppSecondary shadow-md overflow-x-auto">
                 <Table className="w-full text-sm">
                     <TableHeader className="bg-AppPrimary text-white">
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => (
-                                    <TableHead key={header.id} className="px-4 py-2 text-white">
+                                    <TableHead key={header.id} className="px-3 py-2 text-white text-xs sm:text-sm">
                                         {header.isPlaceholder
                                             ? null
                                             : flexRender(header.column.columnDef.header, header.getContext())}
@@ -89,7 +89,7 @@ export function AppDataTable<TData, TValue>({
                                     data-state={row.getIsSelected() && "selected"}
                                 >
                                     {row.getVisibleCells().map((cell) => (
-                                        <TableCell key={cell.id} className="px-4 py-2 border-b border-AppSecondary">
+                                        <TableCell key={cell.id} className="px-3 py-2 border-b border-AppSecondary text-xs sm:text-sm">
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </TableCell>
                                     ))}
@@ -106,8 +106,8 @@ export function AppDataTable<TData, TValue>({
                 </Table>
             </div>
 
-            <div className="flex items-center justify-between py-4">
-                <span className="text-sm text-gray-500">
+            <div className="flex flex-col sm:flex-row items-center justify-between py-4 gap-4">
+                <span className="text-sm text-gray-500 text-center sm:text-left">
                     Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
                 </span>
                 <div className="flex space-x-2">
@@ -131,4 +131,5 @@ export function AppDataTable<TData, TValue>({
             </div>
         </div>
     );
+
 }

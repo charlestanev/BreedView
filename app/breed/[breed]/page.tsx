@@ -38,25 +38,30 @@ function Page() {
     }, [Params.breed]);
 
     return (
-        <div className="h-screen w-screen bg-AppTertiary flex">
-            <aside className="flex flex-col items-center gap-10 w-[200px] p-6 bg-white shadow-md">
+        <div className="h-screen w-screen flex flex-col md:flex-row bg-AppTertiary">
+            <aside className="flex flex-col items-center gap-6 w-full md:w-[200px] p-6 bg-white shadow-md">
                 <AppLinkButton link="/" />
-                {FormattedData ? <AppSlider ImageArrayList={FormattedData} /> : <p className="text-gray-500">Loading...</p>}
+                {FormattedData ? (
+                    <AppSlider ImageArrayList={FormattedData} />
+                ) : (
+                    <p className="text-gray-500 text-sm md:text-base">Loading...</p>
+                )}
             </aside>
 
-            <main className="flex flex-col w-full h-full bg-AppSecondary p-12">
-                <h1 className="capitalize text-3xl font-bold text-AppMutedPop pb-8">{Params.breed}</h1>
-                <div className="bg-white w-full rounded-lg shadow-md p-6">
+            <main className="flex flex-col w-full h-full bg-AppSecondary p-6 md:p-12">
+                <h1 className="capitalize text-2xl md:text-3xl font-bold text-AppMutedPop pb-6 text-center md:text-left">
+                    {Params.breed}
+                </h1>
+                <div className="bg-white w-full rounded-lg shadow-md p-4 md:p-6 overflow-x-auto">
                     {FormattedData ? (
                         <AppDataTable columns={columns} data={FormattedData} />
                     ) : (
-                        <p className="text-gray-500 text-center py-6">Loading Table...</p>
+                        <p className="text-gray-500 text-center py-6 text-sm md:text-base">Loading Table...</p>
                     )}
                 </div>
             </main>
         </div>
     );
-
 }
 
 export default Page
