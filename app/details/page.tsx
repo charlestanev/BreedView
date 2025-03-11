@@ -12,34 +12,30 @@ function Page() {
     const ImageUrl = Qparams.get('ImageUrl');
 
     return (
-        <div className='h-screen w-screen bg-AppTertiary justify-start CENTER'>
-            <div className={cn(
-                'pt-12 w-[180px] CENTER h-screen !justify-start',
-                'gap-[120px] flex-col',
-            )}>
-                <div
-                    onClick={() => { Router.back() }}
-                    className='flex justify-center'>
+        <div className="h-screen w-screen flex bg-AppTertiary">
+            <aside className="flex flex-col items-center gap-12 w-[200px] p-6 bg-white shadow-md">
+                <div onClick={() => Router.back()} className="cursor-pointer">
                     <AppButton>Back</AppButton>
                 </div>
+            </aside>
 
-            </div>
-            <div className="flex justify-center flex-col bg-AppSecondary w-full h-full pt-12 p-12 ">
-                <div className='flex justify-center'>
-                    <h1 className='capitalize text-3xl font-bold text-AppMutedPop pb-10'>
-                        Image Url
-                    </h1>
-                </div>
-                {
-                    ImageUrl && (
-                        <div className='flex justify-center'>
-                            <Image src={ImageUrl} alt={''} width={400} height={400} />
-                        </div>
-                    )
-                }
-            </div>
-        </div >
-    )
+            <main className="flex flex-col justify-center items-center bg-AppSecondary w-full p-12">
+                <h1 className="capitalize text-3xl font-bold text-AppMutedPop pb-8">Image Preview</h1>
+                {ImageUrl && (
+                    <div className="flex justify-center">
+                        <Image
+                            src={ImageUrl}
+                            alt="Dog Image"
+                            width={400}
+                            height={400}
+                            className="rounded-lg border-2 border-AppPrimary shadow-lg"
+                        />
+                    </div>
+                )}
+            </main>
+        </div>
+    );
+
 }
 
 export default Page
