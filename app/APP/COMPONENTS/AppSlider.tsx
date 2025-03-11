@@ -15,7 +15,7 @@ export function AppSlider({ ImageArrayList }: { ImageArrayList: DogImages[] }) {
                 align: "start",
             }}
             orientation="vertical"
-            className="h-[380px] w-[120px]"
+            className="h-[380px] w-[120px] mt-12"
         >
             <CarouselContent className="-mt-1 h-[400px]">
                 {ImageArrayList.map((item) => (

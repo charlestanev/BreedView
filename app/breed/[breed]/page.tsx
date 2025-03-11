@@ -38,31 +38,25 @@ function Page() {
     }, [Params.breed]);
 
     return (
-        <div className='h-screen w-screen bg-AppTertiary justify-start CENTER'>
-            <div className={cn(
-                'pt-12 w-[180px] CENTER h-screen !justify-start',
-                'gap-[120px] flex-col',
-            )}>
-                <AppLinkButton link='/' />
-                <div>
-                    {
-                        FormattedData ? <AppSlider ImageArrayList={FormattedData} /> : 'Loading...'
-                    }
+        <div className="h-screen w-screen bg-AppTertiary flex">
+            <aside className="flex flex-col items-center gap-10 w-[200px] p-6 bg-white shadow-md">
+                <AppLinkButton link="/" />
+                {FormattedData ? <AppSlider ImageArrayList={FormattedData} /> : <p className="text-gray-500">Loading...</p>}
+            </aside>
+
+            <main className="flex flex-col w-full h-full bg-AppSecondary p-12">
+                <h1 className="capitalize text-3xl font-bold text-AppMutedPop pb-8">{Params.breed}</h1>
+                <div className="bg-white w-full rounded-lg shadow-md p-6">
+                    {FormattedData ? (
+                        <AppDataTable columns={columns} data={FormattedData} />
+                    ) : (
+                        <p className="text-gray-500 text-center py-6">Loading Table...</p>
+                    )}
                 </div>
-            </div>
-            <div className="bg-AppSecondary w-full h-full pt-12 p-12">
-                <h1 className='capitalize text-3xl font-bold text-AppMutedPop pb-10'>
-                    {Params.breed}
-                </h1>
-                <div className='bg-white w-full h-auto rounded-md text-black-500'>
-                    {FormattedData
-                        ? <AppDataTable columns={columns} data={FormattedData ? FormattedData : []} />
-                        : 'loading Table...'
-                    }
-                </div>
-            </div>
-        </div >
-    )
+            </main>
+        </div>
+    );
+
 }
 
 export default Page

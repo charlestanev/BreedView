@@ -7,12 +7,12 @@ const AppMenuItem = ({ link, text, icon }: TitleIcon) => {
         <Link
             href={link}
             className={cn(
-                "flex items-center gap-3 px-4 py-2 rounded-lg w-full text-white transition-all duration-300",
-                "bg-transparent hover:bg-AppPop hover:text-white"
+                "flex items-center gap-4 px-5 py-3 rounded-lg w-full text-white text-sm font-medium transition-all duration-300",
+                "bg-transparent hover:bg-AppPop hover:text-white hover:shadow-md"
             )}
         >
-            <span className="text-lg">{icon}</span>
-            <span className="font-medium">{text}</span>
+            <span className="h-5 w-5">{icon}</span>
+            <span>{text}</span>
         </Link>
     );
 };
