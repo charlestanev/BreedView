@@ -1,17 +1,15 @@
-import React from 'react'
-import { MenuItemList } from './CONSTATNS/MenuItemList'
-import AppMenuItem from './AppMenuItem'
+import React from "react";
+import { MenuItemList } from "./CONSTATNS/MenuItemList";
+import AppMenuItem from "./AppMenuItem";
 
 function AppMenuItemGroup() {
     return (
-        <>
-            {
-                MenuItemList.map((x) => (
-                    <AppMenuItem key={x.id} icon={x.icon} text={x.title} link={x.link} />
-                ))
-            }
-        </>
-    )
+        <div className="flex flex-col gap-4 w-full">
+            {MenuItemList.map((x) => (
+                <AppMenuItem key={x.id} icon={x.icon} text={x.title} link={x.link} />
+            ))}
+        </div>
+    );
 }
 
-export default AppMenuItemGroup
+export default AppMenuItemGroup;

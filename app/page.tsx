@@ -33,21 +33,23 @@ function Page() {
 
     GetData();
   }, []);
+
   return (
-    <div className={
-      cn(
-        'gap-1 flex-col bg-AppTertiary h-screen w-screen',
-        'justify-center items-center flex flex-row'
-      )}>
+    <div className={cn("grid grid-cols-[auto,1fr] h-screen w-screen bg-background text-foreground")}>
       <AppLeftPanel />
-      <div className='bg-white w-full h-auto rounded-md text-black-500'>
-        {FormattedData
-          ? <AppDataTable columns={columns} data={FormattedData ? FormattedData : []} />
-          : 'loading Table...'
-        }
-      </div>
+      <main className="flex flex-col justify-center items-center p-6 w-full">
+        <div className="w-full max-w-6xl bg-white dark:bg-AppMutedPop p-6 rounded-xl shadow-lg">
+          {FormattedData ? (
+            <AppDataTable columns={columns} data={FormattedData} />
+          ) : (
+            <div className="flex items-center justify-center h-40 text-lg font-medium text-gray-500">
+              Loading Table...
+            </div>
+          )}
+        </div>
+      </main>
     </div>
-  )
+  );
 }
 
 export default Page
