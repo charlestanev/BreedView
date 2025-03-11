@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Dog Breed Management",
-  description: "Dog Breed Management Application",
+  title: "Breed View",
+  description: "Dog Breed View Management Application",
 };
 
 export default function RootLayout({
