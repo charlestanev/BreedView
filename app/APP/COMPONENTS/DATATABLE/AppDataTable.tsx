@@ -61,12 +61,12 @@ export function AppDataTable<TData, TValue>({
                     onChange={(event) =>
                         table.getColumn("ImageLink")?.setFilterValue(event.target.value)
                     }
-                    className="w-full sm:w-64 border border-AppSecondary focus:ring-2 focus:ring-AppPop"
+                    className="w-full sm:w-64 border border-AppSecondary focus:ring-2 focus:ring-AppPop transition-transform duration-300 hover:scale-125 hover:overflow-x-visible"
                 />
             </div>
 
-            <div className="rounded-lg border border-AppSecondary shadow-md overflow-x-auto">
-                <Table className="w-full text-sm">
+            <div className="rounded-lg border border-AppSecondary overflow-x-auto shadow-[0_12px_30px_rgba(0,0,0,0.5),0_20px_50px_rgba(210,172,255,0.6),0_0_50px_rgba(255,193,193,0.7)] transition-transform duration-300 hover:scale-105 hover:overflow-visible">
+                <Table className="w-full text-sm border">
                     <TableHeader className="bg-AppPrimary text-white">
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
@@ -85,7 +85,7 @@ export function AppDataTable<TData, TValue>({
                             table.getRowModel().rows.map((row) => (
                                 <TableRow
                                     key={row.id}
-                                    className="hover:bg-AppTertiary transition-all duration-300"
+                                    className="hover:bg-[#fdaeae] transition-transform duration-300 hover:scale-y-125 hover:overflow-x-visible"
                                     data-state={row.getIsSelected() && "selected"}
                                 >
                                     {row.getVisibleCells().map((cell) => (
@@ -116,17 +116,21 @@ export function AppDataTable<TData, TValue>({
                         size="sm"
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
+                        className="bg-gradient-to-r from-[#ff7eb3] to-[#ff758c] text-white px-4 py-2 rounded-md shadow-lg transition-all duration-300 hover:scale-110 hover:from-[#ff6a9d] hover:to-[#ff5a7f] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         Previous
                     </Button>
+
                     <Button
                         variant="outline"
                         size="sm"
                         onClick={() => table.nextPage()}
                         disabled={!table.getCanNextPage()}
+                        className="bg-gradient-to-r from-[#6a11cb] to-[#2575fc] text-white px-4 py-2 rounded-md shadow-lg transition-all duration-300 hover:scale-110 hover:from-[#5a0fb8] hover:to-[#1b5cd6] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         Next
                     </Button>
+
                 </div>
             </div>
         </div>
