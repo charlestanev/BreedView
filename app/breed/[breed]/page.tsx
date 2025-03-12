@@ -51,13 +51,13 @@ function Page() {
                 <h1 className="capitalize text-2xl md:text-3xl font-bold text-AppMutedPop pb-6 text-center md:text-left">
                     {Params.breed}
                 </h1>
-                <div className="bg-gradient-to-bl from-[#d2acff] to-[#ffc1c1] w-full rounded-lg 
+                <div className="w-full rounded-lg border border-white/30 bg-gradient-to-bl from-[#d2acff] to-[#ffc1c1] 
     shadow-[0_10px_25px_rgba(0,0,0,0.4),0_15px_35px_rgba(210,172,255,0.6),0_0_40px_rgba(255,193,193,0.5)] 
-    p-6 md:p-8 overflow-x-auto border border-white/30">
+    p-6 md:p-8 overflow-x-auto sm:overflow-hidden">
 
                     {FormattedData ? (
                         <div className="test">
-                            <AppDataTable columns={columns} data={FormattedData}  />
+                            <AppDataTable columns={columns} data={FormattedData} />
                         </div>
                     ) : (
                         <p className="text-gray-500 text-center py-6 text-sm md:text-base">Loading Table...</p>

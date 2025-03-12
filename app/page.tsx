@@ -33,16 +33,25 @@ function Page() {
 
     GetData();
   }, []);
-
   return (
-    <div className={cn("flex flex-col md:grid md:grid-cols-[auto,1fr] h-screen w-screen bg-background text-foreground")}>
+    <div
+      className={cn(
+        "flex flex-col md:flex-row h-screen w-screen bg-AppTertiary justify-center items-center"
+      )}
+    >
       <AppLeftPanel />
-      <main className="flex flex-col justify-center items-center p-4 sm:p-6 w-full">
-        <div className="w-full max-w-6xl bg-AppMutedPop p-4 sm:p-6 rounded-xl shadow-lg">
+
+      <main className="flex flex-col w-full h-full bg-AppSecondary p-6 sm:p-8 md:p-10 lg:p-12">
+        <div
+          className="w-full rounded-lg border border-white/30 bg-gradient-to-bl from-[#d2acff] to-[#ffc1c1] 
+            shadow-[0_10px_25px_rgba(0,0,0,0.4),0_15px_35px_rgba(210,172,255,0.6),0_0_40px_rgba(255,193,193,0.5)] 
+            p-6 sm:p-8 md:p-10 lg:p-12 mx-auto max-w-6xl overflow-x-auto sm:overflow-hidden 
+            transition-all duration-300 hover:from-[#c69cff] hover:to-[#ffaaaa]"
+        >
           {FormattedData ? (
             <AppDataTable columns={columns} data={FormattedData} />
           ) : (
-            <div className="flex items-center justify-center h-40 text-lg font-medium text-gray-500">
+            <div className="flex items-center justify-center h-full text-lg font-medium text-gray-500">
               Loading Table...
             </div>
           )}
@@ -50,6 +59,7 @@ function Page() {
       </main>
     </div>
   );
+
 }
 
 export default Page
