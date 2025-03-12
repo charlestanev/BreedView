@@ -38,8 +38,8 @@ function Page() {
     }, [Params.breed]);
 
     return (
-        <div className="h-screen w-screen flex flex-col md:flex-row bg-AppTertiary">
-            <aside className="flex flex-col items-center gap-6 w-full md:w-[200px] p-6 bg-white shadow-md">
+        <div className="h-screen w-screen flex flex-col md:flex-row bg-AppTertiary sm:bg-red-600">
+            <aside className="flex flex-col items-center gap-6 w-full md:w-[200px] p-6 bg-white shadow-md sm:bg-red-600">
                 <AppLinkButton link="/" />
                 {FormattedData ? (
                     <AppSlider ImageArrayList={FormattedData} />
@@ -60,7 +60,7 @@ function Page() {
                     )}
                 </div>
             </main>
-        </div>
+        </div >
     );
 }
 

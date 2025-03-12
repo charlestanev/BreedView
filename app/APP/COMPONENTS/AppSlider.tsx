@@ -18,12 +18,15 @@ export function AppSlider({ ImageArrayList }: { ImageArrayList: DogImages[] }) {
                 align: "start",
             }}
             orientation={orientation}
-            className="h-[200px] sm:h-[380px] w-full sm:w-[120px] mt-6 sm:mt-12"
+            className="lg:h-[200px] h-auto w-full sm:w-[120px] mt-6 sm:mt-12"
         >
-            <CarouselContent className="flex sm:block -mt-1 h-[220px] sm:h-[400px] gap-2 sm:gap-0">
+            <CarouselContent className="flex sm:block -mt-1 md:h-[375px] gap-2 sm:gap-0 h-auto">
                 {ImageArrayList.map((item) => (
                     <CarouselItem key={item.id} className="pt-1 md:basis-1/3">
-                        <div className="h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] flex items-center justify-center">
+                        <div className={`h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] 
+                            flex items-center justify-center
+                            ${isMobile && 'h-[auto] w-[auto]'}
+                            `}>
                             <Image
                                 src={item.ImageLink}
                                 width={200}
@@ -35,8 +38,8 @@ export function AppSlider({ ImageArrayList }: { ImageArrayList: DogImages[] }) {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute top-1/2 -translate-y-1/2 sm:top-0 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-0" />
-            <CarouselNext className="absolute bottom-1/2 translate-y-1/2 sm:bottom-0 sm:left-1/2 sm:-translate-x-1/2 sm:translate-y-0" />
-        </Carousel>
+            <CarouselPrevious className="absolute top-1/2 -translate-y-1/2 sm:top-[-50px] sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-0" />
+            <CarouselNext className="absolute bottom-1/2 translate-y-1/2 sm:top-[390px] sm:left-1/2 sm:-translate-x-1/2 sm:translate-y-0" />
+        </Carousel >
     );
 }
